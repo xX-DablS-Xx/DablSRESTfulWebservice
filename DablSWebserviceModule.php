@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class WebserviceModule
+ * Class DablSWebserviceModule
  *
  * This class contains all basic configuration of the webservice module.
  *
@@ -17,7 +17,7 @@
  * @copyright Stephan Schmid (DablS) 2014+
  * @version v1.0.0
  */
-class WebserviceModule extends CWebModule
+class DablSWebserviceModule extends CWebModule
 {
 	/**
 	 * @param boolean $bmodulePreload If this module is prelaoded

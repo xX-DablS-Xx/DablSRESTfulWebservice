@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class ModuleManager
+ * Class DablSModuleManager
  *
  * This class goes through each modules and initialize it.
  * If there are any URL rules into the modules, it tries to add them.
@@ -10,7 +10,7 @@
  * @copyright Stephan Schmid (DablS) 2014+
  * @version v1.0.0
  */
-class ModuleManager
+class DablSModuleManager
 {
 	/**
 	 * Initialize each module and collect all URL rules
