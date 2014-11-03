@@ -1,8 +1,7 @@
 DablSRESTfulWebservice
 ======================
 
-This is a Yii Framework ( http://www.yiiframework.com ) module for a generic RESTful webservice.
-By default you have all basic RESTful methods, which you can add to you models.
+This is a Yii Framework ( http://www.yiiframework.com ) module for a generic RESTful webservice. By default you have all basic RESTful methods, which you can add to your models.
 * [__GET__]: __List__, lists all found entries (e.g.: __DOMAIN__/webservice/api/__MODEL__)
  * you can include any search criteria for your list
 * [__GET__]: __Show__, shows selected entry (e.g.: __DOMAIN__/webservice/api/__MODEL__/__ID__)
