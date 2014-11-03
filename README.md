@@ -25,8 +25,15 @@ Clone this module, prefered as git submodule, into __application.modules__ and a
 
 ```
 ...
+// autoloading model and component classes
+'import' => [
+	...
+	'application.modules.webservice.components.DablSModuleManager'
+	...
+],
+...
 // load URLs from all modules
-'onBeginRequest' => [ 'application.modules.DablSRESTfulWebservice.components.DablSModuleManager', 'collectRules' ],
+'onBeginRequest' => [ 'DablSModuleManager', 'collectRules' ],
 ...
 // application modules
 'modules' => [
