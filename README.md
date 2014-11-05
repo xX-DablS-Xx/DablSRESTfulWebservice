@@ -62,7 +62,6 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
 # otherwise forward it to index.php
-RewriteRule ^webservice\/(.*)$ index.php/webservice/$1
 RewriteRule . index.php
 ```
 

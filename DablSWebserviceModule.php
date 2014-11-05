@@ -45,8 +45,8 @@ class DablSWebserviceModule extends CWebModule
 		));
 
 		// include 3party lib \RawData\Stream
-		$sIncludePathRawDataStream =  Yii::getPathOfAlias( 'application.modules.webservice.3party.RawData.Stream' );
-		require_once( $sIncludePathRawDataStream. '.php' );
+		$sIncludePathRawDataStream =  dirname( __FILE__ ). DIRECTORY_SEPARATOR .'3party'. DIRECTORY_SEPARATOR .'RawData'. DIRECTORY_SEPARATOR .'Stream.php';
+		require_once( $sIncludePathRawDataStream );
 
 		// set webservice custom parameters
 		Yii::app() -> params['webservice'] = [
