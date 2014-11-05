@@ -51,7 +51,7 @@ class DablSWebserviceModule extends CWebModule
 		// set webservice custom parameters
 		Yii::app() -> params['webservice'] = [
 			'version' => 'v0.0.0',
-			'models' => [ 'list' => [], 'show' => [], 'create' => [], 'delete' => [] ],
+			'models' => [ 'list' => [], 'show' => [], 'create' => [], 'update' => [], 'delete' => [] ],
 			'api_versions' => [ 'base_api' => 'BaseApi', 'base_methods' => 'BaseMethods' ],
 		];
 

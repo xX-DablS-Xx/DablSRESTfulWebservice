@@ -46,7 +46,7 @@ class BaseMethods extends CBehavior
 	public function actionShow()
 	{
 		// get instance
-		if( !in_array( $this -> owner -> sModel, Yii::app() -> params['webservice']['models']['list'] ) )
+		if( !in_array( $this -> owner -> sModel, Yii::app() -> params['webservice']['models']['show'] ) )
 			$this -> owner -> _sendErrorResponse( self::ERROR_ALLOWED_MODEL );
 		$oModel = new $this -> owner -> sModel;
 
@@ -135,7 +135,7 @@ class BaseMethods extends CBehavior
 	public function actionUpdate()
 	{
 		// get instance
-		if( !in_array( $this -> owner -> sModel, Yii::app() -> params['webservice']['models']['create'] ) )
+		if( !in_array( $this -> owner -> sModel, Yii::app() -> params['webservice']['models']['update'] ) )
 			$this -> owner -> _sendErrorResponse( self::ERROR_ALLOWED_MODEL );
 		$oModel = new $this -> owner -> sModel;
 
