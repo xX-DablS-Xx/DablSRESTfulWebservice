@@ -21,8 +21,10 @@ class DablSWebserviceModule extends CWebModule
 {
 	/**
 	 * @param boolean $bmodulePreload If this module is prelaoded
+	 * @param array $configs A list of all to load config files
 	 */
-	public $modulePreload= false;
+	public $modulePreload = false;
+	public $configs = [];
 
 	/**
 	 * Initializes the module. This method is called at the end of the module constructor. Note that at this moment,
@@ -55,13 +57,11 @@ class DablSWebserviceModule extends CWebModule
 			'api_versions' => [ 'base_api' => 'BaseApi', 'base_methods' => 'BaseMethods' ],
 		];
 
+		// set webservice configs
+		$aConfigs = [ 'base_config' => 'BaseConfig' ] + ( is_array( $this -> configs ) ? $this -> configs : [] );
+
 		// attach behaviors (version configurations)
-		$this -> attachBehaviors(
-			[
-				//'__version__' => '__version_config__',
-				'base_config' => 'BaseConfig',
-			]
-		);
+		$this -> attachBehaviors( array_reverse( $aConfigs ) );
 
 		parent::init();
 	}
