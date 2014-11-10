@@ -97,7 +97,7 @@ class BaseMethods extends CBehavior
 		}
 
 		// validate offset and limit
-		if( !empty( $oCriteria -> limit ) AND !empty( $oCriteria -> offset ) )
+		if( $oCriteria -> limit >= 0 AND $oCriteria -> offset >= 0 )
 			$oCriteria -> offset *= $oCriteria -> limit;
 
 		$aData = $oModel -> findAll( $oCriteria );
