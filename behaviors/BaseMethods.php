@@ -88,9 +88,17 @@ class BaseMethods extends CBehavior
 		{
 			if( $sName === '_order' )
 				$oCriteria -> order = strval( $mValue );
+			else if( $sName == '_limit' )
+				$oCriteria -> limit = intval( $mValue );
+			else if( $sName == '_offset' )
+				$oCriteria -> offset = intval( $mValue );
 			else if( $oModel -> hasAttribute( $sName ) )
 				$oCriteria -> compare( $sName, str_replace( '%', '', $mValue ), ( stripos( $mValue, '%' ) === 0 ) ? true : false );
 		}
+
+		// validate offset and limit
+		if( !empty( $oCriteria -> limit ) AND !empty( $oCriteria -> offset ) )
+			$oCriteria -> offset *= $oCriteria -> limit;
 
 		$aData = $oModel -> findAll( $oCriteria );
 
