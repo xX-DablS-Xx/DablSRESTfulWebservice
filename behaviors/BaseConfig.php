@@ -35,22 +35,10 @@ class BaseConfig extends CBehavior
 		Yii::app() -> getUrlManager() -> addRules(
 			[
 				[
-					'webservice/api/create',
-					'pattern' => 'webservice/api/<model:\w+>',
-					'defaultParams' => $aDefaultParameters,
-					'verb' => 'POST',
-				],
-				[
-					'webservice/api/list',
-					'pattern' => 'webservice/api/<model:\w+>',
-					'defaultParams' => $aDefaultParameters,
-					'verb' => 'GET',
-				],
-				[
-					'webservice/api/show',
+					'webservice/api/delete',
 					'pattern' => 'webservice/api/<model:\w+>/<id:\d+>',
 					'defaultParams' => $aDefaultParameters,
-					'verb' => 'GET',
+					'verb' => 'DELETE',
 				],
 				[
 					'webservice/api/update',
@@ -59,10 +47,22 @@ class BaseConfig extends CBehavior
 					'verb' => 'PUT',
 				],
 				[
-					'webservice/api/delete',
+					'webservice/api/create',
+					'pattern' => 'webservice/api/<model:\w+>',
+					'defaultParams' => $aDefaultParameters,
+					'verb' => 'POST',
+				],
+				[
+					'webservice/api/show',
 					'pattern' => 'webservice/api/<model:\w+>/<id:\d+>',
 					'defaultParams' => $aDefaultParameters,
-					'verb' => 'DELETE',
+					'verb' => 'GET',
+				],
+				[
+					'webservice/api/list',
+					'pattern' => 'webservice/api/<model:\w+>',
+					'defaultParams' => $aDefaultParameters,
+					'verb' => 'GET',
 				],
 			]
 		);

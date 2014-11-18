@@ -77,8 +77,13 @@ class BaseApi extends CBehavior
 	 * @param array $aReplacement A list of used placeholders into the error message
 	 * @param integer $iStatus The status code
 	 * @param array $aDetails A list with detailed error information
-	 * @access public
+	 * @access protected
 	 * @return void (output)
+	 *
+	 * @response boolean success required If the request failed
+	 * @response string error required The error message
+	 * @response integer code required The error code, if it was a known error
+	 * @response array details optional Detailed information of the error
 	 */
 	protected function _sendErrorResponse( $mError, $aReplacement = [], $iStatus = 400, $aDetails = [] )
 	{

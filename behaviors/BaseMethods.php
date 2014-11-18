@@ -39,9 +39,12 @@ class BaseMethods extends CBehavior
 	}
 
 	/**
-	 * Return entry with given index from the given model
+	 * Return an entry with given index from the given model
 	 * @access public
 	 * @return void
+	 *
+	 * @config webservice.models.show
+	 * @response method models apiAttributes
 	 */
 	public function actionShow()
 	{
@@ -71,9 +74,19 @@ class BaseMethods extends CBehavior
 	}
 
 	/**
-	 * Return all data from the given model
+	 * Return all data from the given model.
+	 * All model search conditions are optional, no matter if they are required, denied or optional for saving.
+	 * You may optionally enter a comparison operator (<, <=, >, >=, <> or =) at the beginning of each of your search values to specify how the comparison should be done.
+	 *
 	 * @access public
 	 * @return void
+	 *
+	 * @config webservice.models.list
+	 * @verb attributes models
+	 * @response method models apiAttributes
+	 * @verb string _order optional The order condition of the data list (response)
+	 * @verb integer _limit optional The limitation of the data list (response)
+	 * @verb integer _offset optional The offset of the limited data list (response)
 	 */
 	public function actionList()
 	{
@@ -123,6 +136,10 @@ class BaseMethods extends CBehavior
 	 * Create a new model entry and return it
 	 * @access public
 	 * @return void
+	 *
+	 * @config webservice.models.create
+	 * @verb attributes models
+	 * @response method models apiAttributes
 	 */
 	public function actionCreate()
 	{
@@ -139,6 +156,10 @@ class BaseMethods extends CBehavior
 	 * Update an existing entry given by index and return it
 	 * @access public
 	 * @return void
+	 *
+	 * @config webservice.models.update
+	 * @verb attributes models
+	 * @response method models apiAttributes
 	 */
 	public function actionUpdate()
 	{
@@ -191,6 +212,10 @@ class BaseMethods extends CBehavior
 	 * Delete an existing entry given by index
 	 * @access public
 	 * @return void
+	 *
+	 * @config webservice.models.update
+	 * @response boolean success If the delete process succeed
+	 * @response mixed index Which index got deleted
 	 */
 	public function actionDelete()
 	{

@@ -17,7 +17,7 @@ class ApiController extends CController
 	const ERROR_DENIED_ACTION 		= 2;
 
 	/**
-	 * public array $aErrorList A List which contains all error messages
+	 * @var array $aErrorList A List which contains all error messages
 	 */
 	public $aErrorList = [
 		self::ERROR_MISSING_ACTION => 'Requested action "{{action}}" does not exist.',
