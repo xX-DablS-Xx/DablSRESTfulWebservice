@@ -373,6 +373,7 @@ class DocuController extends CController
 	{
 		$aReturn = [];
 
+		$aAttributes = null;
 		if( method_exists( $sModel, $sMethod ) )
 		{
 			$aAttributes = $sModel::model() -> $sMethod();
@@ -391,18 +392,20 @@ class DocuController extends CController
 				else if( preg_match( '/@(property|verb|response)\s+(?<type>[^\s]+)\s+(?<name>[^\s]+)\s*(?<description>.*)$/', $sLine, $aMatches ) )
 					$this -> _prepareRecursiveLines( $aComment, $aMatches );
 			}
+		}
 
-			// prepare limitation
-			forEach( $aAttributes as $sAttribute )
-			{
-				if( isset( $aComment[ $sAttribute ] ) )
-					$aReturn[ $sAttribute ] = $aComment[ $sAttribute ];
-				else if( isset( $aProperties[ $sAttribute ] ) )
-					$aReturn[ $sAttribute ] = $aProperties[ $sAttribute ];
-				else
-					$aReturn[ $sAttribute ] = [];
-					
-			}
+		if( $aAttributes === null )
+			$aAttributes = array_keys( $sModel::model() -> getAttributes() );
+
+		// prepare limitation
+		forEach( $aAttributes as $sAttribute )
+		{
+			if( isset( $aComment[ $sAttribute ] ) )
+				$aReturn[ $sAttribute ] = $aComment[ $sAttribute ];
+			else if( isset( $aProperties[ $sAttribute ] ) )
+				$aReturn[ $sAttribute ] = $aProperties[ $sAttribute ];
+			else
+				$aReturn[ $sAttribute ] = [];
 
 		}
 
