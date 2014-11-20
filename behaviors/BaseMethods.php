@@ -213,7 +213,7 @@ class BaseMethods extends CBehavior
 	 * @access public
 	 * @return void
 	 *
-	 * @config webservice.models.update
+	 * @config webservice.models.delete
 	 * @response boolean success If the delete process succeed
 	 * @response mixed index Which index got deleted
 	 */
