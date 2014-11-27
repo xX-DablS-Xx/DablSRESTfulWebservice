@@ -45,6 +45,9 @@ class BaseMethods extends CBehavior
 	 *
 	 * @config webservice.models.show
 	 * @response method models apiAttributes
+	 * 
+	 * @response boolean success If request succeeded
+	 * @response array data The whole model information as a list
 	 */
 	public function actionShow()
 	{
@@ -84,9 +87,13 @@ class BaseMethods extends CBehavior
 	 * @config webservice.models.list
 	 * @verb attributes models
 	 * @response method models apiAttributes
+	 * 
 	 * @verb string _order optional The order condition of the data list (response)
 	 * @verb integer _limit optional The limitation of the data list (response)
 	 * @verb integer _offset optional The offset of the limited data list (response)
+	 * 
+	 * @response boolean success If request succeeded
+	 * @response array data An array of model lists, with the whole information
 	 */
 	public function actionList()
 	{
@@ -140,6 +147,9 @@ class BaseMethods extends CBehavior
 	 * @config webservice.models.create
 	 * @verb attributes models
 	 * @response method models apiAttributes
+	 *
+	 * @response boolean success If request succeeded
+	 * @response array data The whole model information as a list
 	 */
 	public function actionCreate()
 	{
@@ -160,6 +170,9 @@ class BaseMethods extends CBehavior
 	 * @config webservice.models.update
 	 * @verb attributes models
 	 * @response method models apiAttributes
+	 *
+	 * @response boolean success If request succeeded
+	 * @response array data The whole model information as a list
 	 */
 	public function actionUpdate()
 	{

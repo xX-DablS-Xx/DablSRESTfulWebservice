@@ -102,7 +102,7 @@ class DocuController extends CController
 	{
 		$aData = [];
 
-		// include error respone
+		// include error response
 		$sErrorClass = 'BaseApi';
 		$sErrorMethod = '_sendErrorResponse';
 		$aData['ErrorResponse'] =  $this -> _fetchComment( $sErrorClass, $sErrorMethod );

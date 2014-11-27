@@ -43,6 +43,9 @@ if( !empty( $aMethod['return'] ) )
 if( !empty( $aMethod['_models'] ) )
 	$sContent .= '<p><span class="main-label">Models:</span> '. implode( ', ', $aMethod['_models'] ) .'</p>';
 
+if( !empty( $aMethod['verb'] ) OR !empty( $aMethod['response'] ) OR !empty( $aMethod['errors'] ) )
+	$sContent .= '<br /><span class="hr-label">General Information</span><hr />';
+
 if( !empty( $aMethod['verb'] ) )
 	$sContent .= $this -> renderPartial( '_docuTable', [ 'aData' => $aMethod['verb'], 'sType' => $sVerb ], true );
 if( !empty( $aMethod['response'] ) )
@@ -51,6 +54,9 @@ if( !empty( $aMethod['errors'] ) )
 	$sContent .= $this -> renderPartial( '_docuTable', [ 'aData' => $aMethod['errors'], 'sType' => 'Errors', 'bRequired' => false ], true );
 
 if( !empty( $aMethod['models'] ) )
+{
+	$sContent .= '<span class="hr-label">Models Information</span><hr />';
+
 	forEach( $aMethod['models'] as $sModel => $aModel )
 	{
 		$sContent .= '<fieldset class="sub-fieldset"><legend class="sub-header"> '. $sModel .'</legend>';
@@ -63,6 +69,7 @@ if( !empty( $aMethod['models'] ) )
 
 		$sContent .= '</div></fieldset>';
 	}
+}
 
 $sContent .= '</div></fieldset>';
 

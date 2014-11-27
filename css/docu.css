@@ -64,3 +64,8 @@
 .description {
 	margin-bottom: 15px !important;
 }
+
+.hr-label {
+	font-weight: bold;
+	color: #808080;
+}
