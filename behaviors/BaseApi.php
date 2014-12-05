@@ -113,7 +113,8 @@ class BaseApi extends CBehavior
 	 * @access public
 	 * @return void (output)
 	 */
-	public function sendJsonResponse( $aData, $iStatus = 200, $iCheck = 0 ) {
+	public function sendJsonResponse( $aData, $iStatus = 200, $iCheck = 0 )
+	{
 		$this -> owner -> _sendResponse( json_encode( $aData, $iCheck ), $iStatus );
 	}
 
@@ -175,4 +176,11 @@ class BaseApi extends CBehavior
 			}
 		}
 	}
+
+	/**
+	 * This method validates the given values for each call generally
+	 * @access protected
+	 * @return void
+	 */
+	protected function _validateData() {}
 }
