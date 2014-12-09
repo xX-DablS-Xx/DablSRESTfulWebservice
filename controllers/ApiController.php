@@ -165,7 +165,7 @@ class ApiController extends CController
 		if( parent::beforeAction( $oAction ) )
 		{
 			$this -> _fetchData();
-			$this -> _validateData();
+			$this -> _validateData( $oAction );
 
 			return true;
 		}

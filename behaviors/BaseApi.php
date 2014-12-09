@@ -179,8 +179,9 @@ class BaseApi extends CBehavior
 
 	/**
 	 * This method validates the given values for each call generally
+	 * @param CAction $oAction The action to be executed
 	 * @access protected
 	 * @return void
 	 */
-	protected function _validateData() {}
+	protected function _validateData( $oAction ) {}
 }
