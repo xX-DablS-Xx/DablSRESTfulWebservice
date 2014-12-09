@@ -127,7 +127,7 @@ class DocuController extends CController
 			$oController = new $sClass( 'docu' );
 			$oController -> init();
 
-			forEach( $oController -> getAttachedBehaviors() as $oBehavior )
+			forEach( array_reverse( $oController -> getAttachedBehaviors() ) as $oBehavior )
 			{
 				if( $oBehavior -> getEnabled() && method_exists( $oBehavior, $sMethod ) )
 					$aData[ ucfirst( $aRoute[2] ) ] = $this -> _fetchComment( $oBehavior, $sMethod );
