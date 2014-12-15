@@ -103,14 +103,19 @@ class DocuController extends CController
 		$aData = [];
 
 		// include error response
-		$sErrorClass = 'BaseApi';
+		$sErrorController = 'ApiController';
 		$sErrorMethod = '_sendErrorResponse';
-		$aData['ErrorResponse'] =  $this -> _fetchComment( $sErrorClass, $sErrorMethod );
 
-		$oApiController = new ApiController( 'error' );
-		$oApiController -> init();
+		$oErrorController = new $sErrorController( 'error' );
+		$oErrorController -> init();
 
-		$aData['ErrorResponse']['errors'] = $oApiController -> aErrorList;
+		forEach( array_reverse( $oErrorController -> getAttachedBehaviors() ) as $oErrorBehavior )
+		{
+			if( $oErrorBehavior -> getEnabled() && method_exists( $oErrorBehavior, $sErrorMethod ) )
+				$aData['ErrorResponse'] = $this -> _fetchComment( $oErrorBehavior, $sErrorMethod );
+		}
+
+		$aData['ErrorResponse']['errors'] = $oErrorController -> aErrorList;
 		ksort( $aData['ErrorResponse']['errors'] );
 
 		// list all rules
