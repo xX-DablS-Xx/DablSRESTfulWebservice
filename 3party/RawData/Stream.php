@@ -60,6 +60,9 @@ class Stream
 			return false;
 
 		preg_match('/boundary=(.*)$/', $_SERVER['CONTENT_TYPE'], $matches);
+		if( !isset( $matches[1] ) )
+			return false;
+		
 		return $matches[1];
 	}
 
