@@ -36,11 +36,13 @@ class Stream
 
 		$boundary = $this->boundary();
 
-		if (!count($boundary)) {
-			return array(
+		if ($boundary === false OR !count($boundary)) {
+			$data =  array(
 				'post' => $this->parse($this->input),
 				'file' => array()
 			);
+			
+			return $data;
 		}
 
 		$blocks = $this->split($boundary);
