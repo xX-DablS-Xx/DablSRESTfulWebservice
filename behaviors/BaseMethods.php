@@ -106,14 +106,20 @@ class BaseMethods extends CBehavior
 		$oCriteria = new CDbCriteria;
 		forEach( $this -> owner -> aData as $sName => $mValue )
 		{
-			if( $sName === '_order' )
+			if( $oModel -> hasAttribute( $sName ) )
+				$oCriteria -> compare( $sName, str_replace( '%', '', $mValue ), ( stripos( $mValue, '%' ) === 0 ) ? true : false );
+			else if( $sName === '_order' )
 				$oCriteria -> order = strval( $mValue );
 			else if( $sName == '_limit' )
 				$oCriteria -> limit = intval( $mValue );
 			else if( $sName == '_offset' )
 				$oCriteria -> offset = intval( $mValue );
-			else if( $oModel -> hasAttribute( $sName ) )
-				$oCriteria -> compare( $sName, str_replace( '%', '', $mValue ), ( stripos( $mValue, '%' ) === 0 ) ? true : false );
+			else if( $sName == '_select' )
+				$oCriteria -> select = strval( $mValue );
+			else if( $sName == '_group' )
+				$oCriteria -> group = strval( $mValue );
+			else if( $sName == '_having' )
+				$oCriteria -> having = strval( $mValue );
 		}
 
 		// validate offset and limit
